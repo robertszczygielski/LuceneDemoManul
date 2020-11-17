@@ -32,7 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-./LuceneDemo/
+LuceneDemo/
 
 # dependencies
 src/front/node_modules/
