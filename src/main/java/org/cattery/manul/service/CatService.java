@@ -56,7 +56,7 @@ public class CatService {
     }
 
     public List<String> searchCatsByName(String name) {
-        return luceneFacade.searchCatsByName(name);
+        return luceneFacade.searchCatsByName(name.toLowerCase());
     }
 
     public List<String> readAllCats() {
@@ -64,21 +64,21 @@ public class CatService {
     }
 
     public List<String> searchCatsBySubStringInName(String subStringInName) {
-        return luceneFacade.searchCatsBySubStringInName(subStringInName);
+        return luceneFacade.searchCatsBySubStringInName(subStringInName.toLowerCase());
     }
 
     public List<String> searchCatsBySubStringInNameEndDateRange(String subStringInName, String from, String to) {
         Instant dataFrom = Instant.parse(from + "T00:00:01.00Z");
         Instant dataTo = Instant.parse(to + "T23:59:30.00Z");
 
-        return luceneFacade.searchCatsBySubStringInNameEndDateRange(subStringInName, dataFrom, dataTo);
+        return luceneFacade.searchCatsBySubStringInNameEndDateRange(subStringInName.toLowerCase(), dataFrom, dataTo);
     }
 
     public List<String> searchSortedCatBySubStringInNameAndDateRange(String subStringInName, String from, String to) {
         Instant dataFrom = Instant.parse(from + "T00:00:01.00Z");
         Instant dataTo = Instant.parse(to + "T23:59:30.00Z");
 
-        return luceneFacade.searchSortedCatBySubStingInNameAndDateRange(subStringInName, dataFrom, dataTo);
+        return luceneFacade.searchSortedCatBySubStingInNameAndDateRange(subStringInName.toLowerCase(), dataFrom, dataTo);
     }
 
     private CatDto cat(String name, CatColor color, Instant sold) {
